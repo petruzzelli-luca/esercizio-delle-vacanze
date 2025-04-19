@@ -44,7 +44,7 @@ def apri_pacchetto():
     else:
         return render_template('index.html', output="Non hai abbastanza punti.")
 
-@app.route('/mostra_collezione', methods=['GET'])
+@app.route('/mostra_collezione')
 def mostra_intera_collezione():
     try:
         collezione_completa = pd.read_csv('carte_trovate.csv').to_dict(orient='records')
@@ -52,7 +52,7 @@ def mostra_intera_collezione():
     except FileNotFoundError:
         return render_template('index.html', output="Nessuna collezione trovata.")
 
-@app.route('/mostra_punti', methods=['GET'])
+@app.route('/mostra_punti')
 def mostra_punti():
     return render_template('index.html', output=f"Hai {punti_tot} punti.")
 
