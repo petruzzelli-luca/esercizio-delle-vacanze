@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gioco Pokémon</title>
+</head>
+
+<body>
+    <h1>Benvenuto nel Gioco Pokémon</h1>
+    <p>Seleziona un'opzione:</p>
+    <ul>
+        <li><a href="{{ url_for('apri_pacchetto') }}">Apri un pacchetto (10 punti)</a></li>
+        <li><a href="{{ url_for('mostra_intera_collezione') }}">Mostra l'intera collezione</a></li>
+        <li><a href="{{ url_for('mostra_punti') }}">Mostra i punti totali</a></li>
+    </ul>
+    {% if output %}
+
+    <p>{{ output }}</p>
+    {% if pacchetto %}
+    <ul>
+        {% for carta in pacchetto %}
+        <li>{{ carta }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </div>
+    {% endif %}
+</body>
+
+</html>
