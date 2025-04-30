@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 dataframe_pokemon = pd.read_csv('pokemon.csv')
 punti_tot = 100
+
 probabilità = {
     'Comune': 0.7,
     'Non Comune': 0.2,
@@ -59,7 +60,7 @@ def mostra_punti():
 def salva_collezione(pacchetto):
     try:
         collezione = pd.read_csv('carte_trovate.csv')
-        collezione = pd.concat([collezione, pd.DataFrame(pacchetto)], ignore_index=True)
+        collezione = pd.concat([collezione, pd.DataFrame(pacchetto)], ignore_index=True) #aggiunge il pacchetto alla collezione
     except FileNotFoundError:
         collezione = pd.DataFrame(pacchetto)
     collezione.to_csv('carte_trovate.csv', index=False)
